@@ -5,10 +5,13 @@ class ClientAdmin(admin.ModelAdmin):
 	list_display = "user", "cni", "adress","phone", "date"
 	list_filter =  "user", "cni", "adress", "phone", "date"
 	ordering =  "user", "cni", "adress", "phone", "date"
+
+
+
 class Bank_AccountAdmin(admin.ModelAdmin):
-	list_display = "number", "client"
-	list_filter = "number", "client"
-	ordering = "number", "client"
+	list_display = "number","balance"
+	list_filter = "number", "client","balance"
+	ordering = "number", "client","balance"
 
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Bank_Account, Bank_AccountAdmin)

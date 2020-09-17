@@ -11,25 +11,26 @@ class Client(models.Model):
 	date  = models.DateField(default=timezone.now)
 
 
-class Bank_Account:
+class Bank_Account(models.Model):
 	number = models.PositiveIntegerField()
 	client = models.ManyToManyField(Client)
+	balance = models.PositiveIntegerField()
 
-    def __init__(self): 
-        self.balance=0
-        return self.balance
-  
-    def deposit(self): 
-        amount=float(input("Enter amount to be Deposited: ")) 
-        self.balance += amount 
-        amount.save() 
-  
-    def withdraw(self): 
-        amount = float(input("Enter amount to be Withdrawn: ")) 
-        if self.balance>=amount: 
-            self.balance-=amount 
-            amount.save() 
-        else: 
-            print("\n Insufficient balance  ") 
+	def __str__(self):
+		self.balance= 0
+		return self.balance
+
+#	def deposit(self): 
+ #       amount=float(input("Enter amount to be Deposited: "))
+  #      self.balance += amount 
+   #     amount.save() 
+  #
+   # def withdraw(self): 
+    #    amount = float(input("Enter amount to be Withdrawn: ")) 
+     #   if self.balance>=amount: 
+      #      self.balance-=amount 
+       #     amount.save() 
+        #else: 
+          #  print("\n Insufficient balance  ") 
   
        
