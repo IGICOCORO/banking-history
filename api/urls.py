@@ -1,10 +1,11 @@
 from django.urls import path, include
-from django.conf.urls.static import static
-from django.conf import settings
-from .views import *
+from rest_framework import routers
+from .api import *
+
+router = routers.DefaultRouter()
+router.register("client", ClientViewset)
+router.register("bank_account", Bank_AccountViewset)
 
 urlpatterns = [
-	path("", Home.as_view(), name="api"),
+	path("", include(router.urls)),
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -11,7 +11,10 @@ class Client(models.Model):
 	date  = models.DateField(default=timezone.now)
 
 
-class Bank_Account: 
+class Bank_Account:
+	number = models.PositiveIntegerField()
+	client = models.ManyToManyField(Client)
+
     def __init__(self): 
         self.balance=0
         return self.balance
