@@ -13,8 +13,14 @@ class ClientViewset(viewsets.ModelViewSet):
 	queryset = Client.objects.all()
 	serializer_class = ClientSerializer
 
-class Bank_AccountViewset(viewsets.ModelViewSet):
+class BankAccountViewset(viewsets.ModelViewSet):
 	authentication_classes = [SessionAuthentication]
 	permission_classes = [IsAuthenticated]
-	queryset = Bank_Account.objects.all()
-	serializer_class = Bank_AccountSerializer
+	queryset = BankAccount.objects.all()
+	serializer_class = BankAccountSerializer
+
+class ActionViewset(viewsets.ModelViewSet):
+	authentication_classes = [SessionAuthentication]
+	permission_classes = [IsAuthenticated]
+	queryset = Action.objects.all()
+	serializer_class = ActionSerializer

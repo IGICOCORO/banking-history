@@ -7,11 +7,16 @@ class ClientSerializer(serializers.ModelSerializer):
 	def get_name(self,obj):
 		return f"{obj.user.first_name} {obj.user.last_name}"
 
+	class Meta:
+		model = Client
+		fields = "__all__"
+
+class BankAccountSerializer(serializers.ModelSerializer):
 		class Meta:
-			model = Client
+			model = BankAccount
 			fields = "__all__"
 
-class Bank_AccountSerializer(serializers.ModelSerializer):
+class ActionSerializer(serializers.ModelSerializer):
 		class Meta:
-			model = Bank_Account
+			model = Action
 			fields = "__all__"
