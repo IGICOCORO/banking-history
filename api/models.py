@@ -11,12 +11,13 @@ class Client(models.Model):
 	date  = models.DateField(default=timezone.now)
 
 
-class Bank_Account(models.Model):
-	number = models.PositiveIntegerField()
-	client = models.ManyToManyField(Client)
-	balance = models.PositiveIntegerField()
 
-	def __str__(self):
+class Bank_Account(models.Model):
+	number = models.PositiveIntegerField(null=False, blank=False)
+	client = models.ForeignKey(Client, on_delete=models.CASCADE)
+	balance = models.PositiveIntegerField(default=0)
+
+	def __init__(self):
 		self.balance= 0
 		return self.balance
 

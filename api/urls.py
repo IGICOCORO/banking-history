@@ -4,7 +4,7 @@ from .views import *
 
 router = routers.DefaultRouter()
 router.register("client", ClientViewset)
-router.register("bank_account", Bank_AccountViewset)
+router.register("account", Bank_AccountViewset)
 
 urlpatterns = [
 	path("", include(router.urls)),
