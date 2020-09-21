@@ -12,9 +12,9 @@ class BankAccountAdmin(admin.ModelAdmin):
 	ordering = "number", "client","balance"
 
 class ActionAdmin(admin.ModelAdmin):
-	list_display = "bank_account", "montant", "date", "motif"
-	list_filter = "bank_account", "montant", "date", "motif"
-	ordering = "bank_account", "montant", "date", "motif"
+	list_display = "bank_account", "montant", "date", "motif", "solde"
+	list_filter = "bank_account", "montant", "date", "motif", "solde"
+	ordering = "bank_account", "montant", "date", "motif", "solde"
 
 admin.site.register(Client, ClientAdmin)
 admin.site.register(BankAccount, BankAccountAdmin)

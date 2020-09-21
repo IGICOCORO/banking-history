@@ -27,6 +27,7 @@ class BankAccount(models.Model):
 class Action(models.Model):
 	bank_account = models.ForeignKey(BankAccount, on_delete=models.PROTECT)
 	montant = models.IntegerField()
+	solde = models.IntegerField(editable=False)
 	date = models.DateTimeField(default=timezone.now)
 	motif = models.CharField(max_length=20, blank=True)
 
@@ -36,6 +37,7 @@ class Action(models.Model):
 		self.populateMotif()
 		account.balance += self.montant
 		account.save()
+		self.solde = account.balance
 		super(Action, self).save(*args, **kwargs)
 
 	def populateMotif(self):

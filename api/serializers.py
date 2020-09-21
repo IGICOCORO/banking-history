@@ -12,11 +12,16 @@ class ClientSerializer(serializers.ModelSerializer):
 		fields = "__all__"
 
 class BankAccountSerializer(serializers.ModelSerializer):
-		class Meta:
-			model = BankAccount
-			fields = "__all__"
+	class Meta:
+		model = BankAccount
+		fields = "__all__"
 
 class ActionSerializer(serializers.ModelSerializer):
-		class Meta:
-			model = Action
-			fields = "__all__"
+	str_montant = serializers.SerializerMethodField()
+
+	def get_str_montant(self,obj):
+		return f"+{obj.montant}" if obj.montant>0 else f"{obj.montant}"
+
+	class Meta:
+		model = Action
+		fields = "__all__"
