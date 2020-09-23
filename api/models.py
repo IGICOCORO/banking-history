@@ -18,7 +18,7 @@ class Client(models.Model):
 
 class BankAccount(models.Model):
 	number = models.PositiveIntegerField(editable=False, default=generateAccount, null=False)
-	client = models.ForeignKey(Client, on_delete=models.CASCADE, unique=True)
+	client = models.OneToOneField(Client, on_delete=models.CASCADE, unique=True)
 	balance = models.IntegerField(default=0)
 
 	def __str__(self):
